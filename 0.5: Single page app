@@ -1,0 +1,23 @@
+title 0.5: Single page app
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server-->browser: spa.js
+note over browser:
+browser starts executing js-code
+first it creates a function to render the notes
+secondly it creates another function as an event handler when the data is ready to obtain data and redraw notes.
+thirdly intializes request
+fourthly Creates a function to send to server notes
+lastly the browser creates another function that is executed when loaded, this contain an event handler related to the submit from the form.
+end note
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{"content":"Test 101","date":"2021-03-29T17:18:23.126Z"}, ...]
+note over browser:
+browser keeps waiting for the clicking the button.
+When button is clicked browser js will execute the event handler without the need to make several requests.
+Just the request "new_note_spa" is posted.
+end note
