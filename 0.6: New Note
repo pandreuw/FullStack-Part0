@@ -1,0 +1,12 @@
+title 0.6: New Note
+
+note over browser:
+User click on the button "Save".
+The form content and time are added to array notes.
+Notes are rendered with the new note.
+end note over
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+server-->browser: {"message": "note created"}
+note over browser:
+print on console {"message": "note created"}
+end note over
